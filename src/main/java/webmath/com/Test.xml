@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Test Suite" verbose="1">
+	<listeners>
+		<listener class-name="org.testng.reporters.EmailableReporter" />
+	</listeners>
+	<test name="Test" email="sreenivasmuthyalapati@gmail.com">
+		<classes>
+			<class name="webmath.com.TS1" />
+			<class name="webmath.com.TS2" />
+			<class name="webmath.com.TS3" />
+			<class name="webmath.com.TS4" />
+			<class name="webmath.com.TS5" />
+			<class name="webmath.com.TS6" />
+			<class name="webmath.com.TS7" />
+		</classes>
+	</test>
+</suite>
