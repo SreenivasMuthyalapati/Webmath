@@ -3,15 +3,21 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="webmath.com.TS6">
+      <class name="webmath.com.TS1">
         <methods>
-          <include name="TC003"/>
+          <include name="TC009"/>
           <include name="launch"/>
-          <include name="todefaultframe"/>
-          <include name="tomathforeveryone"/>
+          <include name="TC008"/>
+          <include name="TC007"/>
+          <include name="TC002"/>
+          <include name="TC001"/>
           <include name="close"/>
+          <include name="TC010"/>
+          <include name="TC006"/>
+          <include name="TC005"/>
+          <include name="TC003"/>
         </methods>
-      </class> <!-- webmath.com.TS6 -->
+      </class> <!-- webmath.com.TS1 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

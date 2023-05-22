@@ -1,5 +1,6 @@
 package webmath.com;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -14,16 +15,19 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import sources.Driver;
+import sources.MathforEveryone;
+import sources.Webmath;
+
 public class TS3 {
 
 	WebDriver driver;
-	private String Url = "https://www.webmath.com/";
+	private String Url = Webmath.URL;
 
 	@BeforeClass
 	public void launch() {
 		// Set up the WebDriver and open the browser
-		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\Sreen\\OneDrive\\\\Documents\\QA\\Selenium\\chromedriver_win32\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver",Driver.chromedriver);
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get(Url);
@@ -32,10 +36,9 @@ public class TS3 {
 	
 	@BeforeMethod
 	public void ToMathForEveryone() {
-		
-		driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
-		
-		driver.findElement(By.xpath("//a[@title='Math for Everyone']")).click();	
+	
+		driver.manage(). timeouts(). implicitlyWait(Duration.ofSeconds(10));
+		driver.findElement(By.xpath(MathforEveryone.link)).click();	
 		
 	}
 	

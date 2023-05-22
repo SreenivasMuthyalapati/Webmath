@@ -24,11 +24,12 @@ public class TS7 {
 	@BeforeClass
 	public void launch() {
 		// Set up the WebDriver and open the browser
-		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\Sreen\\OneDrive\\\\Documents\\QA\\Selenium\\chromedriver_win32\\chromedriver.exe");
-		driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.get(Url);
+		
+		 System.setProperty("webdriver.chrome.driver",
+	                "C:\\Users\\Sreen\\OneDrive\\Documents\\QA\\Selenium\\chromedriver_win32\\chromedriver.exe");
+	        driver = new ChromeDriver();
+	        driver.manage().window().maximize();
+	        driver.get(Url);
 	}
 
 	@BeforeMethod

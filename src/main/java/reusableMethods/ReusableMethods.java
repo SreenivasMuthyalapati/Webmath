@@ -1,9 +1,19 @@
 package reusableMethods;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
+
+import jxl.Cell;
+import jxl.Sheet;
+import jxl.Workbook;
+import jxl.read.biff.BiffException;
+import jxl.read.biff.File;
 
 public class ReusableMethods {
 	
@@ -29,10 +39,10 @@ public class ReusableMethods {
         Assert.assertEquals(result, expectedresult, "Test failed, calculation is not correct");
     }
 
-    public void Launch(String Url) {
+    public void Launch(String Url, WebDriver driver) {
         // Set up the WebDriver and open the browser
         System.setProperty("webdriver.chrome.driver",
-                "C:\\Users\\Sreen\\OneDrive\\\\Documents\\QA\\Selenium\\chromedriver_win32\\chromedriver.exe");
+                "C:\\Users\\Sreen\\OneDrive\\Documents\\QA\\Selenium\\chromedriver_win32\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get(Url);
@@ -44,7 +54,11 @@ public class ReusableMethods {
 
     public void Switchtodefaultframe(WebDriver driver) {
         driver.switchTo().defaultContent();
+        
+        
     }
+    
+    
 	
 	
 }

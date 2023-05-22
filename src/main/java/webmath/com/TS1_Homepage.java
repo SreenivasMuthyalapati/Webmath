@@ -11,15 +11,17 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class TS1 {
+import sources.Driver;
+import sources.Homepage;
+import sources.Webmath;
+
+public class TS1_Homepage {
 	private WebDriver driver;
-	private String Url = "https://www.webmath.com/";
 
 	@BeforeClass
 	public void launch() {
 		// Set up the WebDriver and open the browser
-		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\Sreen\\OneDrive\\\\Documents\\QA\\Selenium\\chromedriver_win32\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver",Driver.chromedriver);
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 	}
@@ -33,10 +35,10 @@ public class TS1 {
 	@Test(priority = 1)
 	public void TC001() {
 		// Step 1: Launch browser and navigate to URL
-		driver.get(Url);
+		driver.get(Webmath.URL);
 
 		// Step 2: Verify that the application is launched successfully
-		String expectedTitle = "WebMath - Solve Your Math Problem";
+		String expectedTitle = Webmath.title;
 		String actualTitle = driver.getTitle();
 		Assert.assertEquals(actualTitle, expectedTitle, "Application is not launched successfully");
 	}
@@ -44,7 +46,7 @@ public class TS1 {
 	@Test(priority = 2)
 	public void TC002() {
 		// Step 1: Verify that the main navigation menu is displayed correctly
-		WebElement navigationMenu = driver.findElement(By.xpath("//*[@id='d-navigationTop']"));
+		WebElement navigationMenu = driver.findElement(By.xpath(Homepage.navigationmenu));
 		Assert.assertTrue(navigationMenu.isDisplayed(), "Main navigation menu is not displayed correctly");
 	}
 
@@ -52,7 +54,7 @@ public class TS1 {
 	public void TC003() {
 		// Step 1: Verify that the logo on the homepage is clickable and redirects to
 		// the homepage
-		WebElement logo = driver.findElement(By.xpath("//*[@alt='WebMath - Solve your math problem today']"));
+		WebElement logo = driver.findElement(By.xpath(Homepage.logo));
 		Assert.assertTrue(logo.isDisplayed(), "Logo on the homepage is not displayed");
 
 		// Step 2: Click on the logo
@@ -60,7 +62,7 @@ public class TS1 {
 
 		// Step 3: Verify that the user is redirected to the homepage
 		String currentUrl = driver.getCurrentUrl();
-		Assert.assertEquals(currentUrl, Url, "Clicking on the logo did not redirect to the homepage");
+		Assert.assertEquals(currentUrl, Webmath.URL, "Clicking on the logo did not redirect to the homepage");
 	}
 
 	@Test(priority = 4)
@@ -76,9 +78,9 @@ public class TS1 {
 	@Test(priority = 5)
 	public void TC005() {
 		// Step 1: Click on the home button
-		WebElement homeButton = driver.findElement(By.xpath("//*[@title='WebMath Home Page']"));
+		WebElement homeButton = driver.findElement(By.xpath(Homepage.homebutton));
 		homeButton.click();
-		String eURL = "https://www.webmath.com/index.html";
+		String eURL = Homepage.homeurl;
 
 		// Step 2: Verify navigation
 		String currentUrl = driver.getCurrentUrl();
@@ -88,17 +90,17 @@ public class TS1 {
 	@Test(priority = 6)
 	public void TC006() {
 		// Step 1: Click on Contact Us
-		WebElement contactUsLink = driver.findElement(By.xpath("//*[@title='Contact WebMath']"));
+		WebElement contactUsLink = driver.findElement(By.xpath(Homepage.contactuslink));
 		contactUsLink.click();
 
 		// Step 2: Verify redirection to the contact us page
-		String expectedTitle = "Contact Information - WebMath";
+		String expectedTitle = Homepage.contactusttl;
 		String actualTitle = driver.getTitle();
 		Assert.assertEquals(actualTitle, expectedTitle, "Contact Us page is not displayed");
 
 		// Step 3: Verify contact details
 
-		WebElement contactinfo = driver.findElement(By.xpath("//*[text()='webmathadmin@gmail.com']"));
+		WebElement contactinfo = driver.findElement(By.xpath(Homepage.contactinfo));
 		Assert.assertTrue(contactinfo.isDisplayed(), "Test failed, contact information is not displayed");
 
 	}
@@ -106,12 +108,12 @@ public class TS1 {
 	@Test(priority = 7)
 	public void TC007() {
 
-		driver.findElement(By.xpath("//*[@title='About WebMath']")).click();
+		driver.findElement(By.xpath(Homepage.aboutus)).click();
 		String ttl = driver.getTitle();
-		String expectedttl = "What is WebMath? - WebMath";
+		String expectedttl = Homepage.aboutusttl;
 
 		Assert.assertEquals(ttl, expectedttl, "Test failed, site not redirected to About WebMath");
-		WebElement info = driver.findElement(By.xpath("(//*[@class='d-mainContainerRow'])[3]"));
+		WebElement info = driver.findElement(By.xpath(Homepage.aboutusinfo));
 
 		Assert.assertTrue(info.isDisplayed(), "Test failed, user is not able to see information about Webmath");
 
@@ -120,41 +122,40 @@ public class TS1 {
 	@Test(priority = 8)
 	public void TC008() {
 
-		driver.findElement(By.xpath("//*[@title='Why WebMath']")).click();
+		driver.findElement(By.xpath(Homepage.why)).click();
 		String ttl = driver.getTitle();
-		String expectedttl = "Why Webmath? - WebMath";
+		String expectedttl = Homepage.whyttl;
 
 		Assert.assertEquals(ttl, expectedttl, "Test failed, site not redirected to Why WebMath");
-		WebElement info = driver.findElement(By.xpath("//*[@id='d-childMainContLeft']"));
+		WebElement info = driver.findElement(By.xpath(Homepage.whywebmath));
 
 		Assert.assertTrue(info.isDisplayed(), "Test failed, user is not able to see uses and functions of WebMath");
 
 	}
 
 	@Test(priority = 9)
-	public void TC009() {
+	public void TC009() throws Exception {
 
-		driver.findElement(By.xpath("//*[@title='Website Map Index']")).click();
+		driver.findElement(By.xpath(Homepage.sitemaplink)).click();
 		String ttl = driver.getTitle();
-		String expectedttl = "Site Map - WebMath";
+		String expectedttl = Homepage.sitemapttl;
 
 		Assert.assertEquals(ttl, expectedttl, "Test failed, site not redirected to Site Map");
-		WebElement map = driver.findElement(By.xpath("//*[@id='d-childMainContLeft']"));
+		WebElement map = driver.findElement(By.xpath(Homepage.sitemapinfo));
 
 		Assert.assertTrue(map.isDisplayed(), "Test failed, user is not able to see Site Map of WebMath");
-
+		Thread.sleep(5000);
 	}
 
 	@Test(priority = 10)
 	public void TC010() {
 
-		driver.findElement(By.xpath("//*[@title='Privacy Policy']")).click();
+		driver.findElement(By.xpath(Homepage.pplink)).click();
 		String ttl = driver.getTitle();
-		String expectedttl = "Privacy Policy | Discovery Education";
+		String expectedttl = Homepage.ppttl;
 
 		Assert.assertEquals(ttl, expectedttl, "Test failed, site not redirected to Privacy Policy");
-		WebElement ppolicy = driver.findElement(By.xpath(
-				"//*[@class='horizontal-cta-button comet-button comet-button--primary comet-button--small btn shadow-100']"));
+		WebElement ppolicy = driver.findElement(By.xpath(Homepage.ppinfo));
 
 		Assert.assertTrue(ppolicy.isDisplayed(), "Test failed, user is not able to see Privacy Policies");
 
