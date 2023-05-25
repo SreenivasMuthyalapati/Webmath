@@ -11,12 +11,16 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import com.PageObjectClasses.HomePage;
+
+import reusableMethods.ReusableMethods;
 import sources.Driver;
 import sources.Homepage;
 import sources.Webmath;
 
 public class TS1_Homepage {
 	private WebDriver driver;
+	ReusableMethods m = new ReusableMethods();
 
 	@BeforeClass
 	public void launch() {
@@ -33,7 +37,7 @@ public class TS1_Homepage {
 	}
 
 	@Test(priority = 1)
-	public void TC001() {
+	public void TC001() throws Exception {
 		// Step 1: Launch browser and navigate to URL
 		driver.get(Webmath.URL);
 
@@ -46,7 +50,7 @@ public class TS1_Homepage {
 	@Test(priority = 2)
 	public void TC002() {
 		// Step 1: Verify that the main navigation menu is displayed correctly
-		WebElement navigationMenu = driver.findElement(By.xpath(Homepage.navigationmenu));
+		WebElement navigationMenu = driver.findElement(HomePage.navigationmenu);
 		Assert.assertTrue(navigationMenu.isDisplayed(), "Main navigation menu is not displayed correctly");
 	}
 
@@ -54,7 +58,7 @@ public class TS1_Homepage {
 	public void TC003() {
 		// Step 1: Verify that the logo on the homepage is clickable and redirects to
 		// the homepage
-		WebElement logo = driver.findElement(By.xpath(Homepage.logo));
+		WebElement logo = driver.findElement((HomePage.logo));
 		Assert.assertTrue(logo.isDisplayed(), "Logo on the homepage is not displayed");
 
 		// Step 2: Click on the logo
@@ -78,19 +82,19 @@ public class TS1_Homepage {
 	@Test(priority = 5)
 	public void TC005() {
 		// Step 1: Click on the home button
-		WebElement homeButton = driver.findElement(By.xpath(Homepage.homebutton));
+		WebElement homeButton = driver.findElement(HomePage.homebutton);
 		homeButton.click();
-		String eURL = Homepage.homeurl;
+		String URL = Homepage.homeurl;
 
 		// Step 2: Verify navigation
 		String currentUrl = driver.getCurrentUrl();
-		Assert.assertEquals(currentUrl, eURL, "Home button navigation is not working");
+		Assert.assertEquals(currentUrl, URL, "Home button navigation is not working");
 	}
 
 	@Test(priority = 6)
 	public void TC006() {
 		// Step 1: Click on Contact Us
-		WebElement contactUsLink = driver.findElement(By.xpath(Homepage.contactuslink));
+		WebElement contactUsLink = driver.findElement(HomePage.contactuslink);
 		contactUsLink.click();
 
 		// Step 2: Verify redirection to the contact us page
@@ -100,7 +104,7 @@ public class TS1_Homepage {
 
 		// Step 3: Verify contact details
 
-		WebElement contactinfo = driver.findElement(By.xpath(Homepage.contactinfo));
+		WebElement contactinfo = driver.findElement(HomePage.contactinfo);
 		Assert.assertTrue(contactinfo.isDisplayed(), "Test failed, contact information is not displayed");
 
 	}
@@ -108,12 +112,12 @@ public class TS1_Homepage {
 	@Test(priority = 7)
 	public void TC007() {
 
-		driver.findElement(By.xpath(Homepage.aboutus)).click();
+		driver.findElement(HomePage.aboutus).click();
 		String ttl = driver.getTitle();
 		String expectedttl = Homepage.aboutusttl;
 
 		Assert.assertEquals(ttl, expectedttl, "Test failed, site not redirected to About WebMath");
-		WebElement info = driver.findElement(By.xpath(Homepage.aboutusinfo));
+		WebElement info = driver.findElement(HomePage.aboutusinfo);
 
 		Assert.assertTrue(info.isDisplayed(), "Test failed, user is not able to see information about Webmath");
 
@@ -122,12 +126,12 @@ public class TS1_Homepage {
 	@Test(priority = 8)
 	public void TC008() {
 
-		driver.findElement(By.xpath(Homepage.why)).click();
+		driver.findElement(HomePage.why).click();
 		String ttl = driver.getTitle();
 		String expectedttl = Homepage.whyttl;
 
 		Assert.assertEquals(ttl, expectedttl, "Test failed, site not redirected to Why WebMath");
-		WebElement info = driver.findElement(By.xpath(Homepage.whywebmath));
+		WebElement info = driver.findElement(HomePage.whywebmath);
 
 		Assert.assertTrue(info.isDisplayed(), "Test failed, user is not able to see uses and functions of WebMath");
 
@@ -136,26 +140,26 @@ public class TS1_Homepage {
 	@Test(priority = 9)
 	public void TC009() throws Exception {
 
-		driver.findElement(By.xpath(Homepage.sitemaplink)).click();
+		driver.findElement(HomePage.sitemaplink).click();
 		String ttl = driver.getTitle();
 		String expectedttl = Homepage.sitemapttl;
 
 		Assert.assertEquals(ttl, expectedttl, "Test failed, site not redirected to Site Map");
-		WebElement map = driver.findElement(By.xpath(Homepage.sitemapinfo));
+		WebElement map = driver.findElement(HomePage.sitemapinfo);
 
 		Assert.assertTrue(map.isDisplayed(), "Test failed, user is not able to see Site Map of WebMath");
-		Thread.sleep(5000);
+		
 	}
 
 	@Test(priority = 10)
 	public void TC010() {
 
-		driver.findElement(By.xpath(Homepage.pplink)).click();
+		driver.findElement(HomePage.pplink).click();
 		String ttl = driver.getTitle();
 		String expectedttl = Homepage.ppttl;
 
 		Assert.assertEquals(ttl, expectedttl, "Test failed, site not redirected to Privacy Policy");
-		WebElement ppolicy = driver.findElement(By.xpath(Homepage.ppinfo));
+		WebElement ppolicy = driver.findElement(HomePage.ppinfo);
 
 		Assert.assertTrue(ppolicy.isDisplayed(), "Test failed, user is not able to see Privacy Policies");
 

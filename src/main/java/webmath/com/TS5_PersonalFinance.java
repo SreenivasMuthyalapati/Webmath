@@ -16,7 +16,7 @@ import org.testng.annotations.Test;
 
 import reusableMethods.ReusableMethods;
 
-public class TS5 {
+public class TS5_PersonalFinance {
 
 	WebDriver driver;
 	public String Url = "https://www.webmath.com/";

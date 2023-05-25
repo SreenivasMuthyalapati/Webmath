@@ -6,15 +6,29 @@
   </listeners>
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="webmath.com.TS6">
+      <class name="webmath.com.TS3_EverydayMath">
         <methods>
-          <include name="TC003"/>
+          <include name="TC007"/>
+          <include name="TC008"/>
+          <include name="TC009"/>
           <include name="launch"/>
-          <include name="todefaultframe"/>
-          <include name="tomathforeveryone"/>
+          <include name="TC003"/>
+          <include name="TC014"/>
+          <include name="TC004"/>
+          <include name="TC015"/>
+          <include name="TC005"/>
+          <include name="TC006"/>
+          <include name="tomainframe"/>
+          <include name="TC010"/>
+          <include name="TC011"/>
           <include name="close"/>
+          <include name="TC001"/>
+          <include name="TC012"/>
+          <include name="TC002"/>
+          <include name="TC013"/>
+          <include name="ToMathForEveryone"/>
         </methods>
-      </class> <!-- webmath.com.TS6 -->
+      </class> <!-- webmath.com.TS3_EverydayMath -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Test Suite] -->

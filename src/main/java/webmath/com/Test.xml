@@ -5,13 +5,13 @@
 	</listeners>
 	<test name="Test" email="sreenivasmuthyalapati@gmail.com">
 		<classes>
-			<class name="webmath.com.TS1" />
-			<class name="webmath.com.TS2" />
-			<class name="webmath.com.TS3" />
-			<class name="webmath.com.TS4" />
-			<class name="webmath.com.TS5" />
-			<class name="webmath.com.TS6" />
-			<class name="webmath.com.TS7" />
+			<class name="webmath.com.TS1_Homepage" />
+			<class name="webmath.com.TS2_MathForEveryone" />
+			<class name="webmath.com.TS3_EverydayMath" />
+			<class name="webmath.com.TS4_UnitsConversion" />
+			<class name="webmath.com.TS5_PersonalFinance" />
+			<class name="webmath.com.TS6_MathAtHome" />
+			<class name="webmath.com.TS7_MathAndBeyond" />
 		</classes>
 	</test>
 </suite>

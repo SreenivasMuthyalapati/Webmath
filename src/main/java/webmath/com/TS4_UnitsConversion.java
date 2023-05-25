@@ -14,7 +14,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class TS4 {
+public class TS4_UnitsConversion {
 	
 	WebDriver driver;
 	private String Url = "https://www.webmath.com/";

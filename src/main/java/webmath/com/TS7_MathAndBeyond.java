@@ -15,7 +15,7 @@ import org.testng.annotations.Test;
 
 import reusableMethods.ReusableMethods;
 
-public class TS7 {
+public class TS7_MathAndBeyond {
 	
 	WebDriver driver;
 	public String Url = "https://www.webmath.com/";

@@ -11,11 +11,13 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import com.PageObjectClasses.MathfrEvryone;
+
 import sources.Driver;
 import sources.MathforEveryone;
 import sources.Webmath;
 
-public class TS2 {
+public class TS2_MathForEveryone {
 
 	WebDriver driver;
 	private String Url = Webmath.URL;
@@ -27,7 +29,7 @@ public class TS2 {
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get(Url);
-		driver.findElement(By.xpath(MathforEveryone.link)).click();
+		driver.findElement(MathfrEvryone.link).click();
 	}
 
 	@AfterClass
@@ -56,11 +58,11 @@ public class TS2 {
 	@Test(priority = 3)
 	public void TC003() {
 
-		WebElement tip = driver.findElement(By.xpath(MathforEveryone.tip));
-		WebElement saleprice = driver.findElement(By.xpath(MathforEveryone.saleprice));
-		WebElement windchill = driver.findElement(By.xpath(MathforEveryone.windchill));
-		WebElement coincount = driver.findElement(By.xpath(MathforEveryone.coincount));
-		WebElement lotteryOdds = driver.findElement(By.xpath(MathforEveryone.lottods));
+		WebElement tip = driver.findElement(MathfrEvryone.tip);
+		WebElement saleprice = driver.findElement(MathfrEvryone.saleprice);
+		WebElement windchill = driver.findElement(MathfrEvryone.windchill);
+		WebElement coincount = driver.findElement(MathfrEvryone.coincount);
+		WebElement lotteryOdds = driver.findElement(MathfrEvryone.lottods);
 
 		Assert.assertTrue(tip.isDisplayed(), "Test failed, Figuring tip link is not displayed");
 		Assert.assertTrue(saleprice.isDisplayed(), "Test failed, Sale Price link is not displayed");
@@ -79,13 +81,13 @@ public class TS2 {
 	@Test(priority = 4)
 	public void TC004() {
 
-		WebElement Length = driver.findElement(By.xpath(MathforEveryone.Length));
-		WebElement mass = driver.findElement(By.xpath(MathforEveryone.mass));
-		WebElement area = driver.findElement(By.xpath(MathforEveryone.area));
-		WebElement volume = driver.findElement(By.xpath(MathforEveryone.volume));
-		WebElement speed = driver.findElement(By.xpath(MathforEveryone.speed));
-		WebElement power = driver.findElement(By.xpath(MathforEveryone.power));
-		WebElement Temps = driver.findElement(By.xpath(MathforEveryone.temp));
+		WebElement Length = driver.findElement(MathfrEvryone.Length);
+		WebElement mass = driver.findElement(MathfrEvryone.mass);
+		WebElement area = driver.findElement(MathfrEvryone.area);
+		WebElement volume = driver.findElement(MathfrEvryone.volume);
+		WebElement speed = driver.findElement(MathfrEvryone.speed);
+		WebElement power = driver.findElement(MathfrEvryone.power);
+		WebElement Temps = driver.findElement(MathfrEvryone.temp);
 
 		Assert.assertTrue(Length.isDisplayed(), "Test failed, Length converter link is not displayed");
 		Assert.assertTrue(mass.isDisplayed(), "Test failed, Mass converter link is not displayed");
@@ -107,10 +109,10 @@ public class TS2 {
 	@Test(priority = 5)
 	public void TC005() {
 
-		WebElement SimpleInterest = driver.findElement(By.xpath(MathforEveryone.sampleinterest));
-		WebElement CompoundInterest = driver.findElement(By.xpath(MathforEveryone.compoundinterest));
-		WebElement Retirement = driver.findElement(By.xpath(MathforEveryone.retirement));
-		WebElement loan = driver.findElement(By.xpath(MathforEveryone.loan));
+		WebElement SimpleInterest = driver.findElement(MathfrEvryone.sampleinterest);
+		WebElement CompoundInterest = driver.findElement(MathfrEvryone.compoundinterest);
+		WebElement Retirement = driver.findElement(MathfrEvryone.retirement);
+		WebElement loan = driver.findElement(MathfrEvryone.loan);
 
 		Assert.assertTrue(SimpleInterest.isDisplayed(), "Test failed, Simple Interest link is not displayed");
 		Assert.assertTrue(CompoundInterest.isDisplayed(), "Test failed, Compound Interest link is not displayed");
@@ -127,7 +129,7 @@ public class TS2 {
 	@Test(priority = 6)
 	public void TC006() {
 
-		WebElement Costofelectricity = driver.findElement(By.xpath(MathforEveryone.costofelectricity));
+		WebElement Costofelectricity = driver.findElement(MathfrEvryone.costofelectricity);
 
 		Assert.assertTrue(Costofelectricity.isDisplayed(), "Test failed, Cost of electricity link is not displayed");
 
@@ -138,7 +140,7 @@ public class TS2 {
 	@Test(priority = 7)
 	public void TC007() {
 
-		WebElement WeightonAnotherPlanet = driver.findElement(By.xpath(MathforEveryone.weightonplanet));
+		WebElement WeightonAnotherPlanet = driver.findElement(MathfrEvryone.weightonplanet);
 
 		Assert.assertTrue(WeightonAnotherPlanet.isDisplayed(),
 				"Test failed, Weight on Another Planet link is not displayed");
@@ -150,11 +152,11 @@ public class TS2 {
 
 	@Test(priority = 8)
 	public void TC008() {
-		driver.findElement(By.xpath(MathforEveryone.instructionlink)).click();
+		driver.findElement(MathfrEvryone.instructionlink).click();
 		String ttl = driver.getTitle();
 		String expectedttl = MathforEveryone.instructionsttl;
 		Assert.assertEquals(ttl, expectedttl, "Test failed, site is not redirected to instructions page");
-		WebElement instructions = driver.findElement(By.xpath(MathforEveryone.instructionslist));
+		WebElement instructions = driver.findElement(MathfrEvryone.instructionslist);
 		Assert.assertTrue(instructions.isDisplayed(),
 				"Test failed, user is not able to see the instructions to write problem");
 

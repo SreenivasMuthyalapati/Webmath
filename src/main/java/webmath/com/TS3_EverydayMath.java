@@ -15,11 +15,13 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.PageObjectClasses.MathfrEvryone;
+
 import sources.Driver;
 import sources.MathforEveryone;
 import sources.Webmath;
 
-public class TS3 {
+public class TS3_EverydayMath {
 
 	WebDriver driver;
 	private String Url = Webmath.URL;
@@ -37,8 +39,8 @@ public class TS3 {
 	@BeforeMethod
 	public void ToMathForEveryone() {
 	
-		driver.manage(). timeouts(). implicitlyWait(Duration.ofSeconds(10));
-		driver.findElement(By.xpath(MathforEveryone.link)).click();	
+		driver.manage(). timeouts(). implicitlyWait(5,TimeUnit.SECONDS);
+		driver.findElement(MathfrEvryone.link).click();	
 		
 	}
 	
